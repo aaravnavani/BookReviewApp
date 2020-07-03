@@ -29,7 +29,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         configure()
         configureOCR()
-        
+        /*
         let text = SCNText(string: ocrTextView, extrusionDepth: 2)
         let material = SCNMaterial()
         material.diffuse.contents = UIColor.magenta
@@ -42,6 +42,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         sceneView.scene.rootNode.addChildNode(node)
         sceneView.autoenablesDefaultLighting = true
+ 
+         */
         
         
     }
