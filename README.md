@@ -76,6 +76,8 @@ URLSession.shared.dataTask(with: url) { data, response, error in
 
 In the above code, we not only got the HTML of the website but we also took out the specific part we want. Since we just want the number of stars, we search for that in the html string and extract that. 
 
+## Adding the rating to the user's screen using ARKit
+
 Now for the exciting part: we make the rating show up on the user's screen using ARKit. We write a function for this: 
 
 
