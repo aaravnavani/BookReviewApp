@@ -129,4 +129,11 @@ And that's it!
 
 ## Walkthrough and Screenshots
 
+In this case, we take the picture of <em>The Giver</em> by Lois Lowry (a great book!)
+![Take the picture of the book](PictureOfBook.png)
 
+Now, we adjust the picture we just took so that just the title (and maybe the author) is the "image" that the text recognitition will be performed on. 
+![Five Fingers](AdjustPictureOfBook.png)
+
+Finally, once we take the image, the rating is shown augmented on the user's screen as shown below. 
+![Five Fingers](ARText.png)

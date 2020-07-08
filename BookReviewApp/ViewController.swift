@@ -48,7 +48,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                text.font = UIFont(name: "HelveticaNeue", size: 2)
                
                let node = SCNNode()
-               node.position = SCNVector3(x:0, y:0.02, z:-0.1)
+               node.position = SCNVector3(x:0, y:0.01, z:-0.1)
                node.scale = SCNVector3(x:0.01, y:0.01, z:0.01)
                node.geometry = text
                
