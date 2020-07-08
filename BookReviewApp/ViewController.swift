@@ -29,22 +29,31 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         configure()
         configureOCR()
-        /*
-        let text = SCNText(string: ocrTextView, extrusionDepth: 2)
-        let material = SCNMaterial()
-        material.diffuse.contents = UIColor.magenta
-        text.materials = [material]
         
-        let node = SCNNode()
-        node.position = SCNVector3(x:0, y:0.02, z:-0.1)
-        node.scale = SCNVector3(x:0.01, y:0.01, z:0.01)
-        node.geometry = text
         
-        sceneView.scene.rootNode.addChildNode(node)
-        sceneView.autoenablesDefaultLighting = true
+        
+        print("scanned text \("random text")")
  
-         */
+         
         
+        
+    }
+    
+    private func showARText() {
+        let text = SCNText(string: ocrTextView.text, extrusionDepth: 0.5)
+               let material = SCNMaterial()
+               material.diffuse.contents = UIColor.magenta
+               text.materials = [material]
+        
+               text.font = UIFont(name: "HelveticaNeue", size: 2)
+               
+               let node = SCNNode()
+               node.position = SCNVector3(x:0, y:0.02, z:-0.1)
+               node.scale = SCNVector3(x:0.01, y:0.01, z:0.01)
+               node.geometry = text
+               
+               sceneView.scene.rootNode.addChildNode(node)
+               sceneView.autoenablesDefaultLighting = true
         
     }
     
@@ -128,7 +137,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         private func processImage(_ image: UIImage) {
             guard let cgImage = image.cgImage else { return }
 
-            ocrTextView.text = ""
+            //ocrTextView.text = ""
             scanButton.isEnabled = false
             
             let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
@@ -191,6 +200,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         DispatchQueue.main.async {
                             self.ocrTextView.text = ocrText
                             self.scanButton.isEnabled = true
+                            
+                            
+                            self.showARText()
+                                                        
+                            
                         }
                         
                     }

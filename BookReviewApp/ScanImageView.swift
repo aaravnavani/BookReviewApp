@@ -13,6 +13,8 @@ class ScanImageView: UIImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        
+        self.isHidden = true
     }
     
     
