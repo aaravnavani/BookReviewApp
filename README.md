@@ -76,4 +76,55 @@ URLSession.shared.dataTask(with: url) { data, response, error in
 
 In the above code, we not only got the HTML of the website but we also took out the specific part we want. Since we just want the number of stars, we search for that in the html string and extract that. 
 
-And that's it! With just a few lines of code, we can make a simple book review app. 
+Now for the exciting part: we make the rating show up on the user's screen using ARKit. We write a function for this: 
+
+
+```swift
+private func showARText() {
+    let text = SCNText(string: ocrTextView.text, extrusionDepth: 0.5)
+           let material = SCNMaterial()
+           material.diffuse.contents = UIColor.magenta
+           text.materials = [material]
+    
+           text.font = UIFont(name: "HelveticaNeue", size: 2)
+           
+           let node = SCNNode()
+           node.position = SCNVector3(x:0, y:0.02, z:-0.1)
+           node.scale = SCNVector3(x:0.01, y:0.01, z:0.01)
+           node.geometry = text
+           
+           sceneView.scene.rootNode.addChildNode(node)
+           sceneView.autoenablesDefaultLighting = true
+    
+}
+                
+```
+
+In the first bit of the above code, we set the material, color, and font of the text (feel free to change this if you like): 
+
+```swift
+let material = SCNMaterial()
+material.diffuse.contents = UIColor.magenta
+text.materials = [material]
+
+text.font = UIFont(name: "HelveticaNeue", size: 2)
+
+```
+
+Next, we create a node, which is essentially the position of the text. We create the node first and then we set the position using ```swiftSCNVector3()``` and finally we set the geometry of the node to the actual text. In the last 2 lines, we add our node to the end of the childNodes array and we tell SceneKit to automatically light to the scene: 
+
+```swift
+let node = SCNNode()
+node.position = SCNVector3(x:0, y:0.02, z:-0.1)
+node.scale = SCNVector3(x:0.01, y:0.01, z:0.01)
+node.geometry = text
+
+sceneView.scene.rootNode.addChildNode(node)
+sceneView.autoenablesDefaultLighting = true
+```
+
+And that's it!
+
+## Walkthrough and Screenshots
+
+

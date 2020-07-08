@@ -42,7 +42,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     private func showARText() {
         let text = SCNText(string: ocrTextView.text, extrusionDepth: 0.5)
                let material = SCNMaterial()
-               material.diffuse.contents = UIColor.magenta
+        material.diffuse.contents = UIColor.magenta
                text.materials = [material]
         
                text.font = UIFont(name: "HelveticaNeue", size: 2)
